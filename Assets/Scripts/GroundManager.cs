@@ -9,10 +9,10 @@ public class GroundManager : MonoBehaviour
     [SerializeField] private Transform[] roads;
     
     
-    public static float offScreenPositionZ = -50;
+    private float _offScreenPositionZ;
     void Start()
     {
-        
+        _offScreenPositionZ = -1 * (roads[0].localScale.z / 2) - 10;
     }
 
     void Update()
@@ -20,13 +20,10 @@ public class GroundManager : MonoBehaviour
         foreach (Transform road in roads)
         {
             road.position += Vector3.back * speed * Time.deltaTime;
-            if (road.position.z <= offScreenPositionZ)
+            if (road.position.z <= _offScreenPositionZ)
             {
                 road.position += Vector3.forward * roads.Length * road.localScale.z;
             }
         }
-        
-
-        
     }
 }

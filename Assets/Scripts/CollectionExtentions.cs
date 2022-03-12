@@ -1,7 +1,12 @@
-﻿namespace DefaultNamespace
+﻿
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+
+public static class QueueExtentions
 {
-    public class QueueExtentions
+    public static bool IsEmpty(this ICollection collection)
     {
-        public bool 
+        return collection.Count == 0;
     }
 }
