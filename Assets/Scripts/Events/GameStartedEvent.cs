@@ -1,5 +1,5 @@
 ﻿
-public class GameStartedEEvent : Event
+public class GameStartedEvent : Event
 {
     
 }
