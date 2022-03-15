@@ -11,11 +11,11 @@ public class RoadElement : MonoBehaviour
 
 public enum RoadElementType
 {
-    Coin,
-    Block1x1,
-    Block2x1,
-    Block1x2,
-    Block2x2
+    Block1x1 = 0,
+    Block1x2 = 1,
+    Block2x1 = 2,
+    Block2x2 = 3,
+    Coin = 4
 }
 
 

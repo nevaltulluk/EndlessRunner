@@ -10,7 +10,7 @@ public class RoadElementPool : MonoBehaviour
     public int initialPoolSize;
     public Dictionary<RoadElementType, RoadElement> roadElementDict;
     private Dictionary<RoadElementType, Queue<RoadElement>> pool;
-    private void Start()
+    private void Awake()
     {
         pool = new Dictionary<RoadElementType, Queue<RoadElement>>();
         roadElementDict = new Dictionary<RoadElementType, RoadElement>();
@@ -62,6 +62,7 @@ public class RoadElementPool : MonoBehaviour
     public void Inactivate(RoadElement current)
     {
         current.gameObject.SetActive(false);
+        current.transform.SetParent(transform);
         pool[current.type].Enqueue(current);
     }
 
