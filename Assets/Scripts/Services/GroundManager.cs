@@ -17,10 +17,12 @@ public class GroundManager : MonoBehaviour
     private bool _shouldReset;
     void Start()
     {
-        _eventBus = Container.Instance.GetEventBus();
+        _eventBus = Container.Instance.EventBus;
+        
         _initialRoadPositions = new List<Vector3>();
         _offScreenPositionZ = -1 * (roads[0].transform.localScale.z / 2) - 10;
         _isPlaying = false;
+        
         foreach (var road in roads)
         {
             _initialRoadPositions.Add(road.transform.localPosition);

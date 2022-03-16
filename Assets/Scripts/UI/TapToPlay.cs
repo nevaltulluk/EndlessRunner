@@ -13,7 +13,7 @@ public class TapToPlay : MonoBehaviour
     private EventBus _eventBus;
     void Start()
     {
-        _eventBus = Container.Instance.GetEventBus();
+        _eventBus = Container.Instance.EventBus;
         button.onClick.AddListener(OnButtonClicked);
         _eventBus.Subscribe<GameOverEvent>(OnGameOver);
     }

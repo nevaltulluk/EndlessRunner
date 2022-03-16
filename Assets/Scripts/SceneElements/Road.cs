@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class Road : MonoBehaviour
 {
-    private int _currentRoadWidth;
     [SerializeField] private RoadElementPool pool;
 
+    private int _currentRoadWidth;
+    
     private List<RoadElement> _roadElements = new List<RoadElement>();
+    
     public void Initialize(int offset)
     {
-        
         _currentRoadWidth = Mathf.FloorToInt(transform.localScale.x);
-        int _currentRoadDepth = Mathf.FloorToInt(transform.localScale.z);
-        for (int i = offset; i < _currentRoadDepth; i+=10)
+        
+        int currentRoadDepth = Mathf.FloorToInt(transform.localScale.z);
+        for (int i = offset; i < currentRoadDepth; i+=10)
         {
             CreateRow(-0.5f + i/100f);
         }
@@ -69,7 +71,7 @@ public class Road : MonoBehaviour
                 _roadElements.Add(current);
                 Transform currentTransform;
                 (currentTransform = current.transform).SetParent(transform);
-                currentTransform.localPosition = new Vector3(initialX + (currentCoveredWidth + current.width/2f)*0.125f, currentTransform.localPosition.y, z);
+                currentTransform.localPosition = new Vector3(initialX + (currentCoveredWidth + current.width/2f) * 0.125f, currentTransform.localPosition.y, z);
                 currentCoveredWidth += current.width;
             }
         }

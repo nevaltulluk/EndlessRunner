@@ -4,26 +4,23 @@ using UnityEngine;
 
 public class Container : MonoBehaviour
 {
-
-    private EventBus _eventBus;
-
     public static Container Instance = null;
     
-    
+    public EventBus EventBus;
+    public GameStateService GameStateService;
+    public DataService DataService;
     
     void Awake()
     {
-        _eventBus = new EventBus();
         if (Instance != null && Instance != this) 
         {
             Destroy(gameObject);
         }
  
         Instance = this;
-    }
-
-    public EventBus GetEventBus()
-    {
-        return _eventBus;
+        
+        EventBus = new EventBus();
+        GameStateService = new GameStateService();
+        DataService = new DataService();
     }
 }
